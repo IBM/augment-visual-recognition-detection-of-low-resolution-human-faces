@@ -146,13 +146,15 @@ Add the Object Storage credentials to the notebook
 
 Select the cell below 2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
 
-* Delete the contents of the cell
 * Use `Find and Add Data` (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
-* Under Files, click the dropdown for `Insert to code` for `Data.zip`
+* Under Files, click the dropdown for `Insert to code` for `Object_Detection.zip`
 * Click `Insert StreamingBody object`.
-![](images/add_file_imageclassification.png)
+
+![](/doc/source/images/streaming_body.png)
+
 * Make sure the credentials are saved as streaming_body_1. If not edit and replace the numbers to 1. There should be four such occurrences in the cell as shown in the below image
-![](images/Data_Streaming_Object.png)
+
+![](/doc/source/images/streaming_body_1.png)
 
 ### 2.7 Run the notebook
 
