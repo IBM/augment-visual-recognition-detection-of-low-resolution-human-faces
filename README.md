@@ -58,7 +58,7 @@ If you have not already signed up for Watson Studio then you can sign up [here](
 
 * Select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_choices.png)
+![](/doc/source/images/Create_Watson_Studio_Project.png)
 
 * To create a project in Watson Studio, give the project a name and either create a new `Cloud Object Storage` service or select an existing one from your IBM Cloud account.
 
@@ -80,13 +80,27 @@ Once the service is open, click the `Service Credentials` menu on the left.
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_spark.png)
 
-* Now select the `From URL` tab to specify the URL to the notebook in this repository.
+* Now select the `From URL` tab to specify the URL to the notebook `Put Url` in this repository.
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_with_url_spark.png)
 
 * Click the `Create` button.
 
-### 2.3 Run the notebook
+
+### 2.3 Upload data
+
+#### Upload the data and configuration to the notebook
+
+* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
+and its `Files` tab.
+* Click `browse` and navigate to [object_detection.zip]()
+
+![](doc/source/images/add_file.png)
+
+> Note:  It is possible to use your own data and configuration files.
+If you use a configuration file from your computer, make sure to conform to the JSON structure given in `data/config_classification.txt`.
+
+### 2.4 Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -111,48 +125,6 @@ There are several ways to execute the code cells in your notebook:
   * Press the `Schedule` button located in the top right section of your notebook
     panel. Here you can schedule your notebook to be executed once at some future
     time, or repeatedly at your specified interval.
-
-
-### 2.4 Upload data
-
-#### Upload the data and configuration to the notebook
-
-* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
-and its `Files` tab.
-* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
-* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
-* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
-
-![](doc/source/images/add_file.png)
-
-> Note:  It is possible to use your own data and configuration files.
-If you use a configuration file from your computer, make sure to conform to the JSON structure given in `data/config_classification.txt`.
-
-### 2.5 Save and Share
-
-#### How to save your work:
-
-Under the `File` menu, there are several ways to save your notebook:
-
-* `Save` will simply save the current state of your notebook, without any version
-  information.
-* `Save Version` will save your current state of your notebook with a version tag
-  that contains a date and time stamp. Up to 10 versions of your notebook can be
-  saved, each one retrievable by selecting the `Revert To Version` menu item.
-
-#### How to share your work:
-
-You can share your notebook by selecting the “Share” button located in the top
-right section of your notebook panel. The end result of this action will be a URL
-link that will display a “read-only” version of your notebook. You have several
-options to specify exactly what you want shared from your notebook:
-
-* `Only text and output`: will remove all code cells from the notebook view.
-* `All content excluding sensitive code cells`:  will remove any code cells
-  that contain a *sensitive* tag. For example, `# @hidden_cell` is used to protect
-  your dashDB credentials from being shared.
-* `All content, including code`: displays the notebook as is.
-* A variety of `download as` options are also available in the menu.
 
 
 
