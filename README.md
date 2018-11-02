@@ -138,16 +138,13 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 ![](/doc/source/images/add_file.png)
 
-If you use your own dataset, you will need to update the variables/folder names that refer to the data files in the Jupyter Notebook.
-
-To open the notebook, click on the edit icon to start editing the notebook on your project.
-
-In the notebook, update the global variables in the cell, if you had used your model/dataset.
+* If you use your own dataset, you will need to update the variables/folder names that refer to the data files in the Jupyter Notebook.
+* To open the notebook, click on the edit icon to start editing the notebook on your project.
+* In the notebook, update the global variables in the cell, if you had used your model/dataset.
 
 #### Update the Global Variables section.
 
 * In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#31-data-preparation)
-
 * Update the label to the label given to your test images as per [this section](#32-model-preparation)
 
 ![](/doc/source/images/Model_Params.png)
