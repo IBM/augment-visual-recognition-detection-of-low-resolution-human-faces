@@ -122,7 +122,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 * Now select the `From URL` tab to specify the URL to the notebook `Put Url` in this repository.
 
-![](/doc/source/images/New_Notebook)
+![](/doc/source/images/New_Notebook.png)
 
 * Click the `Create Notebook` button.
 
