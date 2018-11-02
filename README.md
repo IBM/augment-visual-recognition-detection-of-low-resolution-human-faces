@@ -97,8 +97,6 @@ and its `Files` tab.
 
 ![](doc/source/images/add_file.png)
 
-> Note:  It is possible to use your own data and configuration files.
-If you use a configuration file from your computer, make sure to conform to the JSON structure given in `data/config_classification.txt`.
 
 ### 2.4 Run the notebook
 
