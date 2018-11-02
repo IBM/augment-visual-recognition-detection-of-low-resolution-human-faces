@@ -39,66 +39,122 @@ If the below are not already installed on your system, please follow the links a
 
 ## 1. Sign up for IBM Watson Studio
 
-If you have not already signed up for Watson Studio then you can sign up [here](https://console.bluemix.net/catalog/services/watson-studio). By signing up for IBM Watson Studio, two services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud account.
+Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio) service and click on the `Create` button.
 
+By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud dashboard.
 
 
 ## 2. Run using a Jupyter notebook in the IBM Watson Studio
 
-1. [Create a new Watson Studio project](#21-create-a-new-watson-studio-project)
-2. [Create the notebook](#22-create-the-notebook)
-3. [Run the notebook](#23-run-the-notebook)
-4. [Upload data](#24-upload-data)
-5. [Save and Share](#25-save-and-share)
+1. [Data Preparation](#21-data-preparation)
+2. [Model Preparation](#22-model-preparation) 
+3. [Create Object Storage service instance](#23-create-object-storage-service-instance)
+4. [Create a notebook on Watson Studio](#24-create-a-notebook-on-watson-studio)
+5. [Add Tensorflow Object Detection API files](#25-add-tensorflow-object-detection-api-files)
+6. [Update notebook with service credentials](#26-update-the-notebook-with-service-credentials)
+7. [Run the notebook](#27-run-the-notebook)
 
 
-### 2.1 Create a new Watson Studio project
+### 2.1 Data Preparation
 
-* Log in or sign up for IBM's [Watson Studio](https://dataplatform.ibm.com).
+You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the [Object_Detection.zip]() file given in the git repo.
+
+#### To create your own dataset
+
+Create a folder named `Data` in the [Object_Detection]() folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
+
+Compress the `Object_Detection` folder so it can be uploaded to Object Storage.
+
+If you are using a mac machine then compression creates some additional files which should be deleted. On command prompt, go to the compressed file location and run the following commands:
+```
+* zip -d Object_Detection.zip \__MACOSX/\\*
+* zip -d Object_Detection.zip \\\*/.DS_Store
+```
+
+### 2.2 Model Preparation
+
+You can use the same Tensorflow model's frozen inference graph used in this code pattern `ssd_inception_v2_coco_2018_01_28`.
+
+#### To use a different model
+
+* Follow this link- https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md and download any of the COCO trained models, as per your requirement.
+* Unzip the [Object_Detection]() folder and replace the existing model folder with the unzipped downloaded model
+
+
+### 2.3 Create Object Storage service instance
+
+If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://console.bluemix.net/catalog/services/cloud-object-storage).
+
+### 2.4 Create a notebook on Watson Studio
+
+A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
+
+* Login to [IBM Cloud Dashboard](http://console.bluemix.net/). 
+* Click on the Watson Studio instance that was created earlier. 
+* Click `Get Started` button at the bottom of the page.
+
+![](/doc/source/images/Get_Started_Watson_Studio.png)
 
 * Select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
 
 ![](/doc/source/images/Create_Watson_Studio_Project.png)
 
-* To create a project in Watson Studio, give the project a name and either create a new `Cloud Object Storage` service or select an existing one from your IBM Cloud account.
+* To create a project in Watson Studio, give the project a name and select the Cloud Object Storage service created.
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/new_project.png)
+![](/doc/source/images/Project_Name.png)
 
 * Upon a successful project creation, you are taken to a dashboard view of your project. Take note of the `Assets` and `Settings` tabs, we'll be using them to associate our project with any external assets (datasets and notebooks) and any IBM cloud services.
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_dashboard.png)
 
-Once the service is open, click the `Service Credentials` menu on the left.
-
-### 2.2 Create the notebook
-
 * From the project dashboard view, click the `Assets` tab, click the `+ New notebook` button.
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/new_notebook.png)
 
-* Give your notebook a name and select your desired runtime, in this case we'll be using the associated Spark runtime.
-
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_spark.png)
 
 * Now select the `From URL` tab to specify the URL to the notebook `Put Url` in this repository.
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_with_url_spark.png)
+![](/doc/source/images/New_Notebook)
 
-* Click the `Create` button.
-
-
-### 2.3 Upload data
-
-#### Upload the data and configuration to the notebook
-
-* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
-and its `Files` tab.
-* Click `browse` and navigate to [object_detection.zip]()
-
-![](doc/source/images/add_file.png)
+* Click the `Create Notebook` button.
 
 
-### 2.4 Run the notebook
+### 2.5 Add Tensorflow Object Detection API files
+
+* Add `Object_Detection.zip` file, created/downloaded in [this section](#21-data-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
+* Click browse and upload `Object_Detection.zip` file
+
+![](/doc/source/images/add_file.png)
+
+If you use your own dataset, you will need to update the variables/folder names that refer to the data files in the Jupyter Notebook.
+
+To open the notebook, click on the edit icon to start editing the notebook on your project.
+
+In the notebook, update the global variables in the cell, if you had used your model/dataset.
+
+#### Update the Global Variables section.
+
+* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#21-data-preparation)
+
+* Update the label to the label given to your test images as per [this section](#21-data-preparation)
+
+![](/doc/source/images/Model_Params.png)
+
+### 2.6 Update notebook with service credentials
+
+Add the Object Storage credentials to the notebook
+
+Select the cell below 2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
+
+* Delete the contents of the cell
+* Use `Find and Add Data` (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
+* Under Files, click the dropdown for `Insert to code` for `Data.zip`
+* Click `Insert StreamingBody object`.
+![](images/add_file_imageclassification.png)
+* Make sure the credentials are saved as streaming_body_1. If not edit and replace the numbers to 1. There should be four such occurrences in the cell as shown in the below image
+![](images/Data_Streaming_Object.png)
+
+### 2.7 Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -127,6 +183,7 @@ There are several ways to execute the code cells in your notebook:
 
 
 ## 3. Analyze the results
+
 
 
 
