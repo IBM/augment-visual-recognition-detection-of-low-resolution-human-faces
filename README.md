@@ -91,7 +91,7 @@ You may use the same Tensorflow model's frozen inference graph provided in this 
 
 ### 3.3 Create Object Storage service instance
 
-If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://console.bluemix.net/catalog/services/cloud-object-storage).
+If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://console.bluemix.net/catalog/services/cloud-object-storage) in your IBM Cloud.
 
 ### 3.4 Create a notebook on Watson Studio
 
@@ -103,7 +103,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 ![](/doc/source/images/Get_Started_Watson_Studio.png)
 
-* Select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
+* On the landing page, select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
 
 ![](/doc/source/images/Create_Watson_Studio_Project.png)
 
