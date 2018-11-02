@@ -63,11 +63,12 @@ The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashb
 
 ### 3.1 Data Preparation
 
-You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the Data directory within the [Object_Detection.zip]() file in this repo.
+You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the `Data` directory within the [Object_Detection.zip]() file in this repo.
 
 #### To create your own dataset
 
 Create a folder named `Data` in the unzipped `Object_Detection` folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
+Eg: Covered1.jpg, Covered2.jpg and so on.
 
 Compress the `Object_Detection` folder so it can be uploaded to Object Storage.
 
