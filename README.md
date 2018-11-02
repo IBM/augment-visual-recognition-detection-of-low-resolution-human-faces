@@ -173,7 +173,9 @@ Select the cell below `2.1 Add your service credentials for Object Storage` sect
 
 * On the landing page, under the Credentials section, copy the `API key`.
 * Now, in the notebook, navigating to `4.3 Augment Object Detection output to Watson Visual Recognition Output`
+
 ![](/doc/source/images/Visual_Recognition_Notebook.png)
+
 * In the declaration of `VisualRecognitionV3` service, paste the copied API key as value to the `iam_apikey` variable.
 
 ### 3.7 Run the notebook
