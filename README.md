@@ -63,7 +63,7 @@ The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashb
 
 ### 3.1 Data Preparation
 
-You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the [Object_Detection.zip]() file given in the git repo.
+You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the Data directory within the [Object_Detection.zip]() file in this repo.
 
 #### To create your own dataset
 
