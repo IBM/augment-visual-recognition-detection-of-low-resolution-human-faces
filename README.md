@@ -168,7 +168,7 @@ Select the cell below `2.1 Add your service credentials for Object Storage` sect
 
 * Go to your [IBM Cloud Dashboard](http://console.bluemix.net/). Select the previously created Visual Recognition instance.
 
-![](/doc/source/images/Visual_Recognition_Credentials)
+![](/doc/source/images/Visual_Recognition_Credentials.png)
 
 * On the landing page, under the Credentials section, copy the `API key`.
 * Now, in the notebook, navigating to `4.3 Augment Object Detection output to Watson Visual Recognition Output`
