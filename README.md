@@ -26,8 +26,6 @@ Work In Progress
 If the below are not already installed on your system, please follow the links and install according to your system specifications-
 * [Git](https://git-scm.com/downloads): To clone the repo, alternatively you could use the `Clone or Download` button.
 * [IBM Cloud account](https://console.bluemix.net/registration/?target=%2Fdashboard%2Fapps): To access IBM Cloud and Watson Services.
-* [IBM Cloud CLI](https://console.bluemix.net/docs/cli): To push the python application on your IBM Cloud Organization.
-
 
 
 # Steps
