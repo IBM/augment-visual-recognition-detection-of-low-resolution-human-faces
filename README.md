@@ -44,7 +44,7 @@ By signing up for IBM Watson Studio, two additional services will be created - `
 
 ## 2. Create Watson Visual Recognition Service
 
-Create the [Watson Visual Recognition Service](https://console.bluemix.net/catalog/services/visual-recognition) in your IBM Cloud account and click on the `Create` button.
+Go to the [Watson Visual Recognition Service](https://console.bluemix.net/catalog/services/visual-recognition) and click on the `Create` button.
 
 ![](/doc/source/images/Visual_Recognition_Service.png)
 
