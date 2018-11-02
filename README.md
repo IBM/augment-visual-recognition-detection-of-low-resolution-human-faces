@@ -70,7 +70,7 @@ You can use the dataset provided in this code pattern or create your own dataset
 Create a folder named `Data` in the unzipped `Object_Detection` folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
 Eg: Covered1.jpg, Covered2.jpg and so on.
 
-Update the label name to your desired label in the `object-detection.pbtxt` file within the unzipped `Object_Detection` folder.
+Update the `name` field to your desired name in the `object-detection.pbtxt` file within the unzipped `Object_Detection` folder.
 
 ![](/doc/source/images/label.png)
 
