@@ -80,12 +80,13 @@ If you are using a mac machine then compression creates some additional files wh
 
 ### 3.2 Model Preparation
 
-You can use the same Tensorflow model's frozen inference graph used in this code pattern `ssd_inception_v2_coco_2018_01_28`.
+You may use the same Tensorflow model's frozen inference graph provided in this code pattern or use a different Tensorflow model based on your requirement. To use the same model, directly upload the [Object_Detection.zip]() file in this repo, which contains the model folder and the frozen inference graph enclosed.
 
 #### To use a different model
 
 * Follow this link- https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md and download any of the COCO trained models, as per your requirement.
 * Unzip the [Object_Detection]() folder and replace the existing model folder with the unzipped downloaded model
+* Zip the Object_Detection folder to upload it on Object Storage later.
 
 
 ### 3.3 Create Object Storage service instance
