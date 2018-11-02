@@ -33,35 +33,43 @@ If the below are not already installed on your system, please follow the links a
 # Steps
 
 1. [Sign up for IBM Watson Studio](#1-sign-up-for-ibm-watson-studio)
-2. [Run using a Jupyter notebook in the IBM Watson Studio](#2-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
-3. [Analyze the Results](#3-analyze-the-results)
+2. [Create Watson Visual Recognition Service](#2-create-watson-visual-recognition-service)
+3. [Run using a Jupyter notebook in the IBM Watson Studio](#3-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
+4. [Analyze the Results](#4-analyze-the-results)
 
 
 ## 1. Sign up for IBM Watson Studio
 
 Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio) service and click on the `Create` button.
 
-By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your IBM Cloud dashboard.
+By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
+
+## 2. Create Watson Visual Recognition Service
+
+Create the [Watson Visual Recognition Service](https://console.bluemix.net/catalog/services/visual-recognition) in your IBM Cloud account and click on the `Create` button.
+
+![](/doc/source/images/Visual_Recognition_Service.png)
+
+The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps).
+
+## 3. Run using a Jupyter notebook in the IBM Watson Studio
+
+1. [Data Preparation](#31-data-preparation)
+2. [Model Preparation](#32-model-preparation) 
+3. [Create Object Storage service instance](#33-create-object-storage-service-instance)
+4. [Create a notebook on Watson Studio](#34-create-a-notebook-on-watson-studio)
+5. [Add Tensorflow Object Detection API files](#35-add-tensorflow-object-detection-api-files)
+6. [Update notebook with service credentials](#36-update-the-notebook-with-service-credentials)
+7. [Run the notebook](#37-run-the-notebook)
 
 
-## 2. Run using a Jupyter notebook in the IBM Watson Studio
-
-1. [Data Preparation](#21-data-preparation)
-2. [Model Preparation](#22-model-preparation) 
-3. [Create Object Storage service instance](#23-create-object-storage-service-instance)
-4. [Create a notebook on Watson Studio](#24-create-a-notebook-on-watson-studio)
-5. [Add Tensorflow Object Detection API files](#25-add-tensorflow-object-detection-api-files)
-6. [Update notebook with service credentials](#26-update-the-notebook-with-service-credentials)
-7. [Run the notebook](#27-run-the-notebook)
-
-
-### 2.1 Data Preparation
+### 3.1 Data Preparation
 
 You can use the dataset provided in this code pattern or create your own dataset. To use the dataset provided in this code pattern, directly use the [Object_Detection.zip]() file given in the git repo.
 
 #### To create your own dataset
 
-Create a folder named `Data` in the [Object_Detection]() folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
+Create a folder named `Data` in the unzipped `Object_Detection` folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
 
 Compress the `Object_Detection` folder so it can be uploaded to Object Storage.
 
@@ -71,7 +79,7 @@ If you are using a mac machine then compression creates some additional files wh
 * zip -d Object_Detection.zip \\\*/.DS_Store
 ```
 
-### 2.2 Model Preparation
+### 3.2 Model Preparation
 
 You can use the same Tensorflow model's frozen inference graph used in this code pattern `ssd_inception_v2_coco_2018_01_28`.
 
@@ -81,11 +89,11 @@ You can use the same Tensorflow model's frozen inference graph used in this code
 * Unzip the [Object_Detection]() folder and replace the existing model folder with the unzipped downloaded model
 
 
-### 2.3 Create Object Storage service instance
+### 3.3 Create Object Storage service instance
 
 If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://console.bluemix.net/catalog/services/cloud-object-storage).
 
-### 2.4 Create a notebook on Watson Studio
+### 3.4 Create a notebook on Watson Studio
 
 A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
 
@@ -119,7 +127,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 * Click the `Create Notebook` button.
 
 
-### 2.5 Add Tensorflow Object Detection API files
+### 3.5 Add Tensorflow Object Detection API files
 
 * Add `Object_Detection.zip` file, created/downloaded in [this section](#21-data-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
 * Click browse and upload `Object_Detection.zip` file
@@ -134,19 +142,19 @@ In the notebook, update the global variables in the cell, if you had used your m
 
 #### Update the Global Variables section.
 
-* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#21-data-preparation)
+* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#-to-create-your-own-dataset)
 
-* Update the label to the label given to your test images as per [this section](#21-data-preparation)
+* Update the label to the label given to your test images as per [this section](#-to-use-a-different-model)
 
 ![](/doc/source/images/Model_Params.png)
 
-### 2.6 Update notebook with service credentials
+### 3.6 Update notebook with service credentials
 
-Add the Object Storage credentials to the notebook
+#### Add the Object Storage credentials to the notebook
 
-Select the cell below 2.1 Add your service credentials for Object Storage section in the notebook to update the credentials for Object Store.
+Select the cell below `2.1 Add your service credentials for Object Storage` section in the notebook to update the credentials for Object Store.
 
-* Use `Find and Add Data` (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.2 Add...
+* Use `Find and Add Data` (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.1 Add...
 * Under Files, click the dropdown for `Insert to code` for `Object_Detection.zip`
 * Click `Insert StreamingBody object`.
 
@@ -156,7 +164,17 @@ Select the cell below 2.1 Add your service credentials for Object Storage sectio
 
 ![](/doc/source/images/streaming_body_1.png)
 
-### 2.7 Run the notebook
+#### Add the Visual Recognition credentials to the notebook
+
+* Go to your [IBM Cloud Dashboard](http://console.bluemix.net/). Select the previously created Visual Recognition instance.
+
+![](/doc/source/images/Visual_Recognition_Credentials)
+
+* On the landing page, under the Credentials section, copy the `API key`.
+* Now, in the notebook, navigating to `4.3 Augment Object Detection output to Watson Visual Recognition Output`
+* In the declaration of `VisualRecognitionV3` service, paste the copied API key as value to the `iam_apikey` variable.
+
+### 3.7 Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -184,7 +202,7 @@ There are several ways to execute the code cells in your notebook:
 
 
 
-## 3. Analyze the results
+## 4. Analyze the results
 
 
 
