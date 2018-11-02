@@ -129,7 +129,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 ### 3.5 Add Tensorflow Object Detection API files
 
-* Add `Object_Detection.zip` file, created/downloaded in [this section](#-to-create-your-own-dataset), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
+* Add `Object_Detection.zip` file, created/downloaded in [this section](#31-data-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
 * Click browse and upload `Object_Detection.zip` file
 
 ![](/doc/source/images/add_file.png)
@@ -142,9 +142,9 @@ In the notebook, update the global variables in the cell, if you had used your m
 
 #### Update the Global Variables section.
 
-* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#-to-create-your-own-dataset)
+* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#31-data-preparation)
 
-* Update the label to the label given to your test images as per [this section](#-to-use-a-different-model)
+* Update the label to the label given to your test images as per [this section](#32-model-preparation)
 
 ![](/doc/source/images/Model_Params.png)
 
