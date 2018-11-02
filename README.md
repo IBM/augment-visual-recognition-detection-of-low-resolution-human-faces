@@ -103,7 +103,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 ![](/doc/source/images/Get_Started_Watson_Studio.png)
 
-* On the landing page, select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
+* Select the `New Project` option from the Watson Studio landing page and choose the `Standard` option.
 
 ![](/doc/source/images/Create_Watson_Studio_Project.png)
 
