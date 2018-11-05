@@ -1,4 +1,4 @@
-# Augment Visual Recognition Face Detection of Covered human faces
+# Augment Visual Recognition Face Detection to further Identify Covered human faces
 
 ## Work In Progress
 
