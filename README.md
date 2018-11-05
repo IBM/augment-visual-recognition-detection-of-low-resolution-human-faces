@@ -1,9 +1,8 @@
-# augment-visual-recognition-detection-of-low-resolution-human-faces
+# Augment Visual Recognition Face Detection of Covered human faces
 
-Work In Progress
+## Work In Progress
 
 
-`Intro`
 
 ![](/doc/source/images/architecture_diagram.png)
 
