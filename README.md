@@ -8,6 +8,10 @@ Work In Progress
 ![](/doc/source/images/architecture_diagram.png)
 
 ## Flow
+1. Create an Image Dataset containing faces that required to be detected, upload these images on Cloud Object Storage.
+2. Next these image files are fed into the Watson Studio python notebook.
+3. The algorithm first detects faces using a model of Tensorflow Object Detection API.
+4. The detected faces are augmented to Watson Visual Recognition face detection output.
 
 ## Included components
 
