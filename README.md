@@ -120,7 +120,7 @@ If you are using a mac machine then compression creates some additional files wh
 
 * Once all components are added your `object_detection` folder would contain the following directory structure.
 
-![](/doc/source/images/Get_Started_Watson_Studio.png)
+![](/doc/source/images/Directory_Structure.png)
 
 * Zip the Object_Detection folder to upload it on Object Storage later.
 
