@@ -165,7 +165,7 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 ### 4.5 Add Tensorflow Object Detection API files
 
-* Add `Object_Detection.zip` file, created/downloaded in [this section](#31-data-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
+* Add `Object_Detection.zip` file, prepared in [this section](#42-model-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
 * Click browse and upload `Object_Detection.zip` file
 
 ![](/doc/source/images/add_file.png)
