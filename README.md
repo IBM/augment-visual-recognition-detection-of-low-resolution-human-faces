@@ -8,13 +8,15 @@ How can we achieve an increased accuracy in face detection?
 
 The border cases, where a face detection algorithm tend to fail can be treated as an 'Object'. Then, a model can identify these objects and append it to a usual face detection algorithm.
 
-This pattern, demonstrates a methodology to extend Watson Visual Recognition's face detection by providing a strategy that will detect the border cases such as, blur and covered faces, using Watson Studio.
+For example, suppose we take an example of an image where in a person's face remains covered - like a cloth or cap over a person's head - these faces are treated to be as a separate object, labelled as 'Covered'. Next, the objects detected are appended to a face detection algorithm so as to increase the number of detections done by a face detection algorithm.
 
-When the reader has completed this code pattern, they will understand how to:
+This code pattern, demonstrates a methodology, for one such border case where it extends Watson Visual Recognition's face detection by providing a strategy that will detect covered faces using Watson Studio, python notebook. 
+
+When the reader has completed this code pattern, they will know how to:
 
 * Use and understand Tensorflow Object Detection API's models.
 * Understand Watson Visual Recognition's face detection.
-* Understand the strategy use to overcome border cases of a Face Detection Model.
+* Understand the strategy used to overcome border cases of a Face Detection Model.
 * Create and run a Jupyter notebook in Watson Studio.
 * Use Object Storage to access data files.
 
