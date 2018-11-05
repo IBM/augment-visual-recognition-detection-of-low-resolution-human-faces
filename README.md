@@ -5,7 +5,8 @@ Work In Progress
 
 `Intro`
 
-`Architecture Diagram`
+![](/doc/source/images/architecture_diagram.png)
+
 ## Flow
 
 ## Included components
