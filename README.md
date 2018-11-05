@@ -6,9 +6,9 @@ Face recognition owns significant consideration and is appreciated as one of the
 
 How can we achieve an increased accuracy in face detection?
 
-The border cases, where a face detection algorithm tend to fail can be treated as an 'Object'. Then, a model can identify these objects and append it to a usual face detection algorithm.
+The border cases, where a face detection algorithm tend to fail can be treated as an 'Object'. Then, a model can identify these objects and append it to a face detection algorithm.
 
-For example, suppose we take an example of an image where in a person's face remains covered - like a cloth or cap over a person's head - these faces are treated to be as a separate object, labelled as 'Covered'. Next, the objects detected are appended to a face detection algorithm so as to increase the number of detections done by a face detection algorithm.
+For example, suppose we take an example of an image where in a person's face remains covered - like a cloth or cap over a person's head - these faces are treated to be as a separate object, labelled as 'Covered'. Next, the objects detected are appended to a face detection algorithm. Finally, increasing the number of detections done by a face detection algorithm and thereby the accuracy of the prediction.
 
 This code pattern, demonstrates a methodology, for one such border case where it extends Watson Visual Recognition's face detection by providing a strategy that will detect covered faces using Watson Studio, python notebook. 
 
