@@ -29,7 +29,8 @@ When the reader has completed this code pattern, they will know how to:
 
 <!--Optionally, update this section when the video is created-->
 # Watch the Video
-[![](http://img.youtube.com/vi/Jxi7U7VOMYg/0.jpg)](https://www.youtube.com/watch?v=Jxi7U7VOMYg)
+
+
 
 # Steps
 
