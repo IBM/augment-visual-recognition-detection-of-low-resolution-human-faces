@@ -230,6 +230,8 @@ After setting up the notebook on Watson Studio, first we get the results of Obje
 
 Next the objects detected are further augmented to `Watson Visual Recognition` Face Detection, in order to showcase an enhanced face detection model. The `green` box depicts the Object Detection and the `blue` box depicts Watson Visual Recognition's Face Detection Output.
 
+![](/doc/source/images/analyze_results_2.png)
+
 Thus, this pattern demonstrates a methodology to extend Watson Visual Recognition's face detection by providing a strategy that will detect the border cases such as, blur and covered faces.
 
 # Troubleshooting
