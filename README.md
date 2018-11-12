@@ -6,7 +6,7 @@
 <!--Add a new Title and fill in the blanks -->
 # Augment Visual Recognition Face Detection to further Identify Covered human faces
 
-In this code pattern, we will demonstrate a methodology to extend Watson Visual Recognition's face detection by providing a strategy that will detect the border cases such as, blur and covered faces, using Watson Studio.
+In this code pattern, we will demonstrate a methodology to extend `Watson Visual Recognition` face detection by providing a strategy that will detect the border cases such as, blur and covered faces, with `Tensorflow Object Detection`, compiled in `Watson Studio`.
 
 When the reader has completed this code pattern, they will know how to:
 
@@ -20,6 +20,7 @@ When the reader has completed this code pattern, they will know how to:
 ![](/doc/source/images/architecture_diagram.png)
 
 ## Flow
+
 1. Create an Image Dataset containing faces that required to be detected, upload these images on Cloud Object Storage.
 2. Next these image files are fed into the Watson Studio python notebook.
 3. The algorithm first detects faces using a model of Tensorflow Object Detection API.
