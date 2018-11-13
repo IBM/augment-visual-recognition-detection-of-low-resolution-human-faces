@@ -69,7 +69,7 @@ The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashb
 3. [Create Object Storage service instance](#43-create-object-storage-service-instance)
 4. [Create a notebook on Watson Studio](#44-create-a-notebook-on-watson-studio)
 5. [Add Tensorflow Object Detection API files](#45-add-tensorflow-object-detection-api-files)
-6. [Update notebook with service credentials](#46-update-the-notebook-with-service-credentials)
+6. [Update notebook with service credentials](#46-update-notebook-with-service-credentials)
 7. [Run the notebook](#47-run-the-notebook)
 
 
