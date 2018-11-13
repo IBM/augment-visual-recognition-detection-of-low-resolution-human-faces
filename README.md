@@ -150,7 +150,6 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 #### Update the Global Variables section.
 
-* In the notebook, Section 3.1, `Set up Model Parameters` Update the `MODEL_NAME` varaible with the name of the folder downloaded at [this section](#42-model-preparation)
 * Update the label to the label given to your test images as per [this section](#41-data-preparation)
 
 ![](/doc/source/images/Model_Params.png)
