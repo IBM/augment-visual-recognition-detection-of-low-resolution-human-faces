@@ -86,7 +86,7 @@ Update the `name` field to your desired name in the `object-detection.pbtxt` fil
 ### 4.2 Model Preparation
 
 * Follow this link- https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md and download any of the COCO trained models, as per your requirement. If you are using the same dataset the preferred model would be `ssd_mobilenet_v1_coco`.
-* In the downloaded `object_detection` folder, unzip the model folder into it
+* Unzip the model folder and copy the `frozen_inference_graph.pb` file into the `object_detection/Model` folder. 
 * Once all components are added your `object_detection` folder would contain the following directory structure.
 ![](/doc/source/images/Directory_Structure.png)
 
