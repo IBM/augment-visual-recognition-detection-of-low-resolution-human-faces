@@ -151,6 +151,11 @@ A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-par
 
 * Click the `Create Notebook` button.
 
+```
+ NOTE: The notebook runs in the free runtime Python 3.5 environment as well as the default. If you face any issues refer the TROUBLESHOOTING section given below.
+
+```
+
 
 ### 4.5 Add Tensorflow Object Detection API files
 
