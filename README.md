@@ -44,6 +44,10 @@ When the reader has completed this code pattern, they will know how to:
 * Navigate to the [object_detction.zip](https://github.com/IBM/augment-visual-recognition-detection-of-low-resolution-human-faces/blob/master/object_detection.zip) and download it.
 * Unzip the file to your file system.
 
+
+`NOTE: The contents of the object_detection folder have been obtained from the Tensorflow Object Detection API repo-https://github.com/tensorflow/models/tree/master/research/object_detection. Since the entire repo was not needed and only a few folders were required. It has been compiled in this zip file.`
+
+
 ## 2. Sign up for IBM Watson Studio
 
 Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio) service and click on the `Create` button.
@@ -72,6 +76,15 @@ The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashb
 ### 4.1 Data Preparation
 
 You can use the dataset provided in the unzipped `object_detection/Data` folder or create your own dataset.
+
+`NOTE: These images were obtained from Google Images with the filter- "free to use, share or modify, even commercially" applied.
+The original source of the images are as below-
+Covered1.jpg- https://en.wikipedia.org/wiki/Adivasi
+Covered2.jpg-https://de.wikipedia.org/wiki/Datei:Femmes_adivasies,_Gwalior,_India.jpg
+Covered3.jpg-https://ne.wikipedia.org/wiki/%E0%A4%9A%E0%A4%BF%E0%A4%A4%E0%A5%8D%E0%A4%B0:Woman_and_child_in_Raisen_district.jpg
+Covered4.jpg-https://commons.wikimedia.org/wiki/File:Women_in_adivasi_village,_Umaria_district,_India.jpg
+
+`
 
 #### To create your own dataset
 
