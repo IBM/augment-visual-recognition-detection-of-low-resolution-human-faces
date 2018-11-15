@@ -29,7 +29,7 @@ When the reader has completed this code pattern, they will know how to:
 <!--Optionally, update this section when the video is created-->
 # Watch the Video
 
-[![](https://i9.ytimg.com/vi/w1WTRuWxR-8/mq2.jpg?sqp=CJzqs98F&rs=AOn4CLCMb6mCTe30PpRisoyiIUGDNpVheg)](https://www.youtube.com/watch?v=w1WTRuWxR-8&t=6s)
+[![](https://i9.ytimg.com/vi/w1WTRuWxR-8/mq1.jpg?sqp=CMjss98F&rs=AOn4CLCSiWdJIKVWawzvNInFUO4MHKFvKg)](https://www.youtube.com/watch?v=w1WTRuWxR-8&t=6s)
 
 # Steps
 
