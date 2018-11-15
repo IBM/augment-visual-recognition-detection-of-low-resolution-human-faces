@@ -241,7 +241,11 @@ Thus, we achieve an increased accuracy by detecting more number of faces than a 
 
 The `green` box depicts the Object Detection and the `blue` box depicts Watson Visual Recognition's Face Detection Output.
 
+#### Output of Tensorflow Model
+
 ![](/doc/source/images/analyze_results_1.png)
+
+#### Augmented Output of Visual Recognition
 
 ![](/doc/source/images/analyze_results_2.png)
 
