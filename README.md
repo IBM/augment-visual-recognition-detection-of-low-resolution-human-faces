@@ -1,8 +1,3 @@
-## Work In Progress
-<!--Put badges at the very top -->
-<!--change the repo -->
-
-<!--Add a new Title and fill in the blanks -->
 # Augment Visual Recognition Face Detection to further Identify Covered human faces
 
 In this code pattern, we will demonstrate a methodology to extend `Watson Visual Recognition` face detection by providing a strategy that will detect the border cases such as, blur and covered faces, with `Tensorflow Object Detection`, compiled in `Watson Studio`.
