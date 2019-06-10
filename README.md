@@ -41,24 +41,24 @@ When the reader has completed this code pattern, they will know how to:
 
 ```
 NOTE: The contents of the object_detection folder have been obtained from the Tensorflow Object Detection API repo-
-* https://github.com/tensorflow/models/tree/master/research/object_detection. 
+* https://github.com/tensorflow/models/tree/master/research/object_detection.
 * Since the entire repo was not needed and only a few folders were required. It has been compiled in this zip file.
 ```
 
 
 ## 2. Sign up for IBM Watson Studio
 
-Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://console.bluemix.net/catalog/services/watson-studio) service and click on the `Create` button.
+Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://cloud.ibm.com/catalog/services/watson-studio) service and click on the `Create` button.
 
-By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
+By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your [IBM Cloud dashboard](https://cloud.ibm.com/dashboard/apps).
 
 ## 3. Create Watson Visual Recognition Service
 
-Go to the [Watson Visual Recognition Service](https://console.bluemix.net/catalog/services/visual-recognition) and click on the `Create` button.
+Go to the [Watson Visual Recognition Service](https://cloud.ibm.com/catalog/services/visual-recognition) and click on the `Create` button.
 
 ![](/doc/source/images/Visual_Recognition_Service.png)
 
-The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps).
+The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashboard](https://cloud.ibm.com/dashboard/apps).
 
 ## 4. Run using a Jupyter notebook in the IBM Watson Studio
 
@@ -96,7 +96,7 @@ Update the `name` field to your desired name in the `object-detection.pbtxt` fil
 ### 4.2 Model Preparation
 
 * Follow this link- https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md and download any of the COCO trained models, as per your requirement. If you are using the same dataset the preferred model would be `ssd_mobilenet_v1_coco`.
-* Unzip the model folder and copy the `frozen_inference_graph.pb` file into the `object_detection/Model` folder. 
+* Unzip the model folder and copy the `frozen_inference_graph.pb` file into the `object_detection/Model` folder.
 * Once all components are added your `object_detection` folder would contain the following directory structure.
 ![](/doc/source/images/Directory_Structure.png)
 
@@ -111,13 +111,13 @@ If you are using a mac machine then compression creates some additional files wh
 
 ### 4.3 Create Object Storage service instance
 
-If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://console.bluemix.net/catalog/services/cloud-object-storage) in your IBM Cloud Account.
+If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://cloud.ibm.com/catalog/services/cloud-object-storage) in your IBM Cloud Account.
 
 ### 4.4 Create a notebook on Watson Studio
 
-A [notebook](https://datascience.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
+A [notebook](https://dataplatform.cloud.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
 
-* Login to [IBM Cloud Dashboard](http://console.bluemix.net/).
+* Login to [IBM Cloud Dashboard](https://cloud.ibm.com/).
 * Click on the Watson Studio instance that was created earlier.
 * Click `Get Started` button at the bottom of the page.
 
@@ -187,7 +187,7 @@ Select the cell below `2.1 Add your service credentials for Object Storage` sect
 
 #### Add the Visual Recognition credentials to the notebook
 
-* Go to your [IBM Cloud Dashboard](http://console.bluemix.net/). Select the previously created Visual Recognition instance.
+* Go to your [IBM Cloud Dashboard](https://cloud.ibm.com/). Select the previously created Visual Recognition instance.
 
 ![](/doc/source/images/Visual_Recognition_Credentials.png)
 
