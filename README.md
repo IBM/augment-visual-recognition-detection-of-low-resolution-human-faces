@@ -10,8 +10,7 @@ When the reader has completed this code pattern, they will know how to:
 * Create and run a Jupyter notebook in Watson Studio.
 * Use Object Storage to access data files.
 
-<!--add an image in this path-->
-![](/doc/source/images/architecture_diagram.png)
+![](doc/source/images/architecture_diagram.png)
 
 ## Flow
 
@@ -20,185 +19,165 @@ When the reader has completed this code pattern, they will know how to:
 3. The algorithm first detects faces using a model of Tensorflow Object Detection API.
 4. The detected faces are augmented to Watson Visual Recognition face detection output.
 
-
-<!--Optionally, update this section when the video is created-->
-# Watch the Video
+## Watch the Video
 
 [![](https://img.youtube.com/vi/w1WTRuWxR-8/mq1.jpg)](https://www.youtube.com/watch?v=w1WTRuWxR-8&t=6s)
 
-# Steps
+## Steps
 
-1. [Get the Object Detection Folder](#1-get-the-object-detection-folder)
-2. [Sign up for IBM Watson Studio](#2-sign-up-for-ibm-watson-studio)
-3. [Create Watson Visual Recognition Service](#3-create-watson-visual-recognition-service)
-4. [Run using a Jupyter notebook in the IBM Watson Studio](#4-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
-5. [Analyze the Results](#5-analyze-the-results)
+1. [Get the Object Detection data](#1-get-the-object-detection-data)
+2. [Create Watson Visual Recognition Service](#2-create-watson-visual-recognition-service)
+3. [Run using a Jupyter notebook in the IBM Watson Studio](#3-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
+4. [Analyze the Results](#4-analyze-the-results)
 
-## 1. Get the Object Detection Folder
+## 1. Get the Object Detection data
 
 * Navigate to the [object_detction.zip](https://github.com/IBM/augment-visual-recognition-detection-of-low-resolution-human-faces/blob/master/object_detection.zip) and download it.
 * Unzip the file to your file system.
 
-```
-NOTE: The contents of the object_detection folder have been obtained from the Tensorflow Object Detection API repo-
-* https://github.com/tensorflow/models/tree/master/research/object_detection.
-* Since the entire repo was not needed and only a few folders were required. It has been compiled in this zip file.
-```
+> **NOTE**: The contents of the object_detection folder have been obtained from the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) repo. Since the entire repo was not needed and only a few folders were required.
 
-
-## 2. Sign up for IBM Watson Studio
-
-Once you have created an IBM Cloud Account, navigate to [Watson Studio](https://cloud.ibm.com/catalog/services/watson-studio) service and click on the `Create` button.
-
-By signing up for IBM Watson Studio, two additional services will be created - ``Spark`` and ``ObjectStore`` in your [IBM Cloud dashboard](https://cloud.ibm.com/dashboard/apps).
-
-## 3. Create Watson Visual Recognition Service
+## 2. Create Watson Visual Recognition Service
 
 Go to the [Watson Visual Recognition Service](https://cloud.ibm.com/catalog/services/visual-recognition) and click on the `Create` button.
 
-![](/doc/source/images/Visual_Recognition_Service.png)
+![](doc/source/images/Visual_Recognition_Service.png)
 
 The ``Watson Visual Recognition`` service will be added to your [IBM Cloud Dashboard](https://cloud.ibm.com/dashboard/apps).
 
-## 4. Run using a Jupyter notebook in the IBM Watson Studio
+## 3. Run using a Jupyter notebook in the IBM Watson Studio
 
-1. [Data Preparation](#41-data-preparation)
-2. [Model Preparation](#42-model-preparation)
-3. [Create Object Storage service instance](#43-create-object-storage-service-instance)
-4. [Create a notebook on Watson Studio](#44-create-a-notebook-on-watson-studio)
-5. [Add Tensorflow Object Detection API files](#45-add-tensorflow-object-detection-api-files)
-6. [Update notebook with service credentials](#46-update-notebook-with-service-credentials)
-7. [Run the notebook](#47-run-the-notebook)
+1. [Data Preparation](#31-data-preparation)
+2. [Model Preparation](#32-model-preparation)
+3. [Create a notebook on Watson Studio](#33-create-a-notebook-on-watson-studio)
+4. [Add Tensorflow Object Detection API files](#34-add-tensorflow-object-detection-api-files)
+5. [Update notebook with service credentials](#35-update-notebook-with-service-credentials)
+6. [Run the notebook](#36-run-the-notebook)
 
-
-### 4.1 Data Preparation
+### 3.1 Data Preparation
 
 You can use the dataset provided in the unzipped `object_detection/Data` folder or create your own dataset.
 
-```
-NOTE: These images were obtained from Google Images with the filter- "free to use, share or modify, even commercially" applied.
-* The original source of the images are as below-
-* Covered1.jpg- https://en.wikipedia.org/wiki/Adivasi
-* Covered2.jpg-https://de.wikipedia.org/wiki/Datei:Femmes_adivasies,_Gwalior,_India.jpg
-* Covered3.jpg-https://ne.wikipedia.org/wiki/%E0%A4%9A%E0%A4%BF%E0%A4%A4%E0%A5%8D%E0%A4%B0:Woman_and_child_in_Raisen_district.jpg
-Covered4.jpg-https://commons.wikimedia.org/wiki/File:Women_in_adivasi_village,_Umaria_district,_India.jpg
-```
+> **NOTE**: These images were obtained from Google Images with the filter: `free to use, share or modify, even commercially` applied. The original source of the images are as below:
+> * [Covered1.jpg](https://en.wikipedia.org/wiki/Adivasi)
+> * [Covered2.jpg](https://de.wikipedia.org/wiki/Datei:Femmes_adivasies,_Gwalior,_India.jpg)
+> * [Covered3.jpg](https://ne.wikipedia.org/wiki/%E0%A4%9A%E0%A4%BF%E0%A4%A4%E0%A5%8D%E0%A4%B0:Woman_and_child_in_Raisen_district.jpg)
+> * [Covered4.jpg](https://commons.wikimedia.org/wiki/File:Women_in_adivasi_village,_Umaria_district,_India.jpg)
 
-#### To create your own dataset
+#### Optional: To create your own dataset
 
 Create a folder named `Data` in the created `Object_Detection` folder. Ensure the name of the image file follows the format of `label1` where label can be any label assigned to the image and the number increments for each image.
 Eg: Covered1.jpg, Covered2.jpg and so on.
 
 Update the `name` field to your desired name in the `object-detection.pbtxt` file within the unzipped `Object_Detection` folder.
 
-![](/doc/source/images/label.png)
+```json
+"item" : {
+    "id": 1,
+    "name": "covered"
+}
+```
 
-### 4.2 Model Preparation
+### 3.2 Model Preparation
 
-* Follow this link- https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md and download any of the COCO trained models, as per your requirement. If you are using the same dataset the preferred model would be `ssd_mobilenet_v1_coco`.
+* Follow this link: [https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) and download any of the COCO trained models, as per your requirement. If you are using the same dataset the preferred model would be `ssd_mobilenet_v1_coco`.
 * Unzip the model folder and copy the `frozen_inference_graph.pb` file into the `object_detection/Model` folder.
 * Once all components are added your `object_detection` folder would contain the following directory structure.
-![](/doc/source/images/Directory_Structure.png)
+
+  ![](doc/source/images/Directory_Structure.png)
 
 * Compress the `Object_Detection` folder so it can be uploaded to Object Storage.
 
-```
-If you are using a mac machine then compression creates some additional files which should be deleted. On command prompt, go to the compressed file location and run the following commands:
+> **NOTE**: If you are running OSX then compression creates some additional files which should be deleted. In a terminal, go to the compressed file location and run the following commands:
+> * `zip -d Object_Detection.zip \__MACOSX/\\*`
+> * `zip -d Object_Detection.zip \\\*/.DS_Store`
 
-* zip -d Object_Detection.zip \__MACOSX/\\*
-* zip -d Object_Detection.zip \\\*/.DS_Store
-```
-
-### 4.3 Create Object Storage service instance
-
-If you do not have an Cloud Object Storage instance in you dashboard - [Create an Object Storage instance](https://cloud.ibm.com/catalog/services/cloud-object-storage) in your IBM Cloud Account.
-
-### 4.4 Create a notebook on Watson Studio
+### 3.3 Create a notebook on Watson Studio
 
 A [notebook](https://dataplatform.cloud.ibm.com/docs/content/analyze-data/notebooks-parent.html) in Watson Studio is a web-based environment for interactive computing. You can run small pieces of code that process your data, and you can immediately view the results of your computation.
 
-* Login to [IBM Cloud Dashboard](https://cloud.ibm.com/).
-* Click on the Watson Studio instance that was created earlier.
-* Click `Get Started` button at the bottom of the page.
+* Log into IBM's [Watson Studio](https://dataplatform.cloud.ibm.com). Once in, you'll land on the dashboard.
 
-![](/doc/source/images/Get_Started_Watson_Studio.png)
+* Create a new project by clicking `+ New project` and choosing `Standard`.
 
-* Select the `New Project` option from the Watson Studio landing page and choose the `Standard` option.
-
-![](/doc/source/images/Create_Watson_Studio_Project.png)
+  ![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/new-project-standard.png)
 
 * To create a project in Watson Studio, give the project a name and select the Cloud Object Storage service created.
 
-![](/doc/source/images/Project_Name.png)
+  ![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/new-project-standard-name.png)
 
 * Upon a successful project creation, you are taken to a dashboard view of your project. Take note of the `Assets` and `Settings` tabs, we'll be using them to associate our project with any external assets (datasets and notebooks) and any IBM cloud services.
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_dashboard.png)
+  ![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/overview-empty.png)
 
-* From the project dashboard view, click the `Assets` tab, click the `+ New notebook` button.
+* From the new project `Overview` panel, click `+ Add to project` on the top right and choose the `Notebook` asset type.
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/new_notebook.png)
+  ![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/add-assets-notebook.png)
 
+Fill in the following information:
 
-* Now select the `From URL` tab to specify the URL to the notebook- https://github.com/IBM/augment-visual-recognition-detection-of-low-resolution-human-faces/blob/master/notebook/Augment_Visual_Recognition.ipynb
+  * Select the `From URL` tab. [1]
+  * Enter a `Name` for the notebook and optionally a description. [2]
+  * Under `Notebook URL` provide the following url: [https://github.com/IBM/augment-visual-recognition-detection-of-low-resolution-human-faces/blob/master/notebook/Augment_Visual_Recognition.ipynb](https://github.com/IBM/augment-visual-recognition-detection-of-low-resolution-human-faces/blob/master/notebook/Augment_Visual_Recognition.ipynb) [3]
+  * For `Runtime` select the `Python 3.5` option. [4]
 
-![](/doc/source/images/New_Notebook.png)
+  ![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/notebook-create-url-py35.png)
 
-* Click the `Create Notebook` button.
+### 3.4 Add Tensorflow Object Detection API files
 
-```
- NOTE: The notebook runs in the free runtime Python 3.5 environment as well as the default. If you face any issues refer the TROUBLESHOOTING section given below.
+* Add `object_detection.zip` file, prepared at the end of [Section 3.2](#32-model-preparation), to Object Storage. From the new project `Overview` panel, click `+ Add to project` on the top right and choose the `Data` asset type.
 
-```
+   ![add asset](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/add-assets-data.png)
 
+* A panel on the right of the screen will appear to assit you in uploading data. Follow the numbered steps in the image below.
 
-### 4.5 Add Tensorflow Object Detection API files
+  * Ensure you're on the `Load` tab. [1]
+  * Click on the `browse` option. From your machine, browse to the location of the [`object_detection.zip`](object_detection.zip) file in this repository, and upload it. [not numbered]
+  * Once uploaded, go to the `Files` tab. [2]
+  * Ensure the `object_detection.zip` appears. [3]
 
-* Add `Object_Detection.zip` file, prepared at the end of  [this section](#42-model-preparation), to Object Storage. In Watson Studio, go to your project default page, use `Find and Add Data` (look for the 10/01 icon) and its `Files` tab
-* Click browse and upload `Object_Detection.zip` file
-
-![](/doc/source/images/add_file.png)
+![](https://raw.githubusercontent.com/IBM/pattern-utils/master/watson-studio/data-add-data-asset.png)
 
 * If you use your own dataset, you will need to update the variables/folder names that refer to the data files in the Jupyter Notebook.
 * To open the notebook, click on the edit icon to start editing the notebook on your project.
 * In the notebook, update the global variables in the cell, if you had used your model/dataset.
 
-#### Update the Global Variables section.
+#### Update the Global Variables section
 
-* Update the label to the label given to your test images as per [this section](#41-data-preparation)
+* Update the label to the label given to your test images as per [Section 3.2](#32-model-preparation)
 
-![](/doc/source/images/Model_Params.png)
+  ![](doc/source/images/Model_Params.png)
 
-### 4.6 Update notebook with service credentials
+### 3.5 Update notebook with service credentials
 
 #### Add the Object Storage credentials to the notebook
 
 Select the cell below `2.1 Add your service credentials for Object Storage` section in the notebook to update the credentials for Object Store.
 
 * Use `Find and Add Data` (look for the 10/01 icon) and its Files tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below 2.1 Add...
-* Under Files, click the dropdown for `Insert to code` for `Object_Detection.zip`
+* Under Files, click the dropdown for `Insert to code` for `object_detection.zip`
 * Click `Insert StreamingBody object`.
 
-![](/doc/source/images/streaming_body.png)
+![](doc/source/images/streaming_body.png)
 
 * Make sure the credentials are saved as streaming_body_1. If not edit and replace the numbers to 1. There should be four such occurrences in the cell as shown in the below image
 
-![](/doc/source/images/streaming_body_1.png)
+![](doc/source/images/streaming_body_1.png)
 
 #### Add the Visual Recognition credentials to the notebook
 
 * Go to your [IBM Cloud Dashboard](https://cloud.ibm.com/). Select the previously created Visual Recognition instance.
 
-![](/doc/source/images/Visual_Recognition_Credentials.png)
+![](doc/source/images/Visual_Recognition_Credentials.png)
 
 * On the landing page, under the Credentials section, copy the `API key`.
 * Now, in the notebook, navigating to `4.3 Augment Object Detection output to Watson Visual Recognition Output`
 
-![](/doc/source/images/Visual_Recognition_Notebook.png)
+![](doc/source/images/Visual_Recognition_Notebook.png)
 
 * In the declaration of `VisualRecognitionV3` service, paste the copied API key as value to the `iam_apikey` variable.
 
-### 4.7 Run the notebook
+### 3.6 Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -226,7 +205,7 @@ There are several ways to execute the code cells in your notebook:
 
 For this notebook, run it `one cell at a time`. Make sure to `restart` the notebook, once you run the section `1. Setup`, as specified in the notebook.
 
-## 5. Analyze the Results
+## 4. Analyze the Results
 
 This code patterns aims to show a strategy to cover the border cases, such as a covered face.
 
@@ -236,31 +215,22 @@ Next the objects detected are further augmented to `Watson Visual Recognition` F
 
 Thus, we achieve an increased accuracy by detecting more number of faces than a normal face detection algorithm.
 
-
 ### Sample output
 
 The `green` box depicts the Object Detection and the `blue` box depicts Watson Visual Recognition's Face Detection Output.
 
 #### Output of Tensorflow Model
 
-![](/doc/source/images/analyze_results_1.png)
+![](doc/source/images/analyze_results_1.png)
 
 #### Augmented Output of Visual Recognition
 
-![](/doc/source/images/analyze_results_2.png)
+![](doc/source/images/analyze_results_2.png)
 
 Thus, this pattern demonstrates a methodology to extend Watson Visual Recognition's face detection by providing a strategy that will detect the border cases such as, blur and covered faces.
 
+## License
 
-# Troubleshooting
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
 
-## If you encounter an error while creating a Notebook on Watson Studio
-
-Select the below runtime while creating the notebook.
-
-![](/doc/source/images/runtime.png)
-
-<!--keep this-->
-
-# License
-[Apache 2.0](LICENSE)
+[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
